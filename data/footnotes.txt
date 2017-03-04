@@ -1,0 +1,70 @@
+,,,,,,,,,,,,,,,,,,
+1 The Modified Crime Index total is the sum of the Crime Index offenses including arson.  ,,,,,,,,,,,,,,,,,,
+"2 Complete arson figures for 2000 for Alabama, Arkansas, and Massachusetts were not available.",,,,,,,,,,,,,,,,,,
+"3 The population for the city of Mobile, Alabama, includes 40,228 inhabitants from the jurisdiction of the Mobile County Sheriff's Department.",,,,,,,,,,,,,,,,,,
+"4 Due to changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.",,,,,,,,,,,,,,,,,,
+5 Forcible rape figures furnished by the state Uniform Crime Reporting (UCR) Programs administered by the Delaware State Bureau of Investigation and Illinois Department of State Police   ,,,,,,,,,,,,,,,,,,
+"  were not in accordance with national UCR guidelines; therefore, the figures were excluded from the forcible rape, Crime Index total, and Modified Crime Index total categories. ",,,,,,,,,,,,,,,,,,
+"6 Limited data for 2000 were available for Illinois, Kansas, Kentucky, and Montana.  ",,,,,,,,,,,,,,,,,,
+7 Aggravated assault figures were found to be outside established statistical parameters.,,,,,,,,,,,,,,,,,,
+8 Forcible rape figures furnished by the state Uniform Crime Reporting Program administered by the Minnesota Department of Public Safety are not comparable to those for previous years.,,,,,,,,,,,,,,,,,,
+  Dashes (-) indicate a zero report.
+
+  "2,001 ",,,,,,,,,,,,,,,,,,,,
+2001,,1 The Modified Crime Index total is the sum of the Crime Index offenses including arson.  Arson is shown only if 12 months of arson data were received.  If 12 months of arson data were    ,,,,,,,,,,,,,,,,,,
+2001,,"  not received, there is no Modified Crime Index total shown.",,,,,,,,,,,,,,,,,,
+2001,,"2 Complete arson figures for 2001 for Alabama, Massachusetts, and Montana were not available.",,,,,,,,,,,,,,,,,,
+2001,,"3 The population for the city of Mobile, Alabama, includes 55,864 inhabitants from the jurisdiction of the Mobile County Sheriff's Department.",,,,,,,,,,,,,,,,,,
+2001,,"4 Due to changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.",,,,,,,,,,,,,,,,,,
+2001,,5 The data for anthrax assaults were not available.   ,,,,,,,,,,,,,,,,,,
+2001,,6 Forcible rape figures furnished by the state Uniform Crime Reporting (UCR) Program administered by the Illinois State Police were not in accordance with national   ,,,,,,,,,,,,,,,,,,
+2001,," UCR guidelines; therefore, the figures were excluded from the forcible rape, Crime Index total, and Modified Crime Index total categories. ",,,,,,,,,,,,,,,,,,
+2001,,7 Limited data for 2001 were available for Illinois and Kentucky.  ,,,,,,,,,,,,,,,,,,
+2001,,8 Aggravated assault figures were found to be outside established statistical parameters.,,,,,,,,,,,,,,,,,,
+2001,,"9 The murder and nonnegligent homicide figure includes the 2,823 homicides reported as a result of the events of September 11, 2001.  See special report, Section V.  ",,,,,,,,,,,,,,,,,,
+
+
+
+2002,,"1 The Modified Crime Index is the sum of the seven offenses making up the Crime Index, with the addition of arson.  If the FBI does not receive 12 months of arson data from either the    ",,
+2002,,"  agency or the state, no arson or Modified Crime Index will be shown.",,
+2002,,"2 The population for the city of Mobile, Alabama, includes 55,864 inhabitants from the jurisdiction of the Mobile County Sheriff's Department.",,
+2002,,"3 Due to changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.",,
+2002,,4 Forcible rape figures furnished by the state Uniform Crime Reporting (UCR) Program administered by the Illinois State Police were not in accordance with national   ,,
+2002,,"  UCR guidelines; therefore, the figures were excluded from the forcible rape, Crime Index, and Modified Crime Index categories. ",,
+2002,,5 Limited data for 2002 were available for Illinois and Kentucky.  ,,
+2002,,"6 Aggravated assault figures furnished by these agencies were not in accordance with national UCR guidelines; therefore, the figures were excluded from the aggravated assault, ",,
+2002,,"  Crime Index, and Modified Crime Index categories.",,
+
+
+2002,,"1 The Modified Crime Index is the sum of the seven offenses making up the Crime Index, with the addition of arson.  If the FBI does not receive 12 months ",,,,,,,,,,,
+2002,,"  of arson data from either the agency or the state, no arson or Modified Crime Index will be shown.    ",,,,,,,,,,,
+2002,,"2 Aggravated assault figures furnished by these agencies were not in accordance with national UCR guidelines; therefore, the figures were excluded from ",,,,,,,,,,,
+2002,,"  the aggravated assault, Crime Index, and Modified Crime Index categories.",,,,,,,,,,,
+2002,,3 Limited data for 2002 were available for Illinois and Kentucky.  ,,,,,,,,,,,
+2002,,"4 Due to changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.",,,,,,,,,,,
+
+
+2003		1 If the FBI does not receive 12 months of arson data from either the agency or the state, no arson will be shown.													
+2003		2 Due to changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.													
+2003		3 Limited data for 2003 were available for Illinois and Kentucky.													
+2003		4 Aggravated assault figures furnished by these agencies were not in accordance with national UCR guidelines; therefore, the figures were excluded from the aggravated assault and violent crime categories.													
+	1 If the FBI does not receive 12 months of arson data from either the agency or the state, no arson will be shown.													
+	2 Due to changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.													
+	3 The population for the city of Mobile, Alabama, includes 55,864 inhabitants from the jurisdiction of the Mobile County Sheriff's Department.													
+	4 Forcible rape figures furnished by the state Uniform Crime Reporting (UCR) Program administered by the Illinois State Police were not in accordance with national UCR guidelines; therefore, the figures were excluded from the forcible rape and violent crime categories.													
+	5 Limited data for 2003 were available for Illinois and Kentucky.													
+	6 Louisville Metro, Kentucky, is a city-county government that includes the Louisville and Jefferson County Police Departments.													
+	7 Aggravated assault figures furnished by these agencies were not in accordance with national UCR guidelines; therefore, the figures were excluded from the aggravated assault and violent crime categories.													
+2004		1 The FBI does not publish arson data unless it receives data from either the agency or the state for all 12 months of the calendar year.													
+2004		2 Because of changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.													
+2004		3 The data collection methodology for the offense of aggravated assault used by these agencies does not comply with national UCR guidelines.  Consequently, their figures for aggravated assault and violent crime (of which aggravated assault is a part) are not included in this table.													
+
+2004		1 The FBI does not publish arson data unless it receives data from either the agency or the state for all 12 months of the calendar year.													
+2004		2 The population for the city of Mobile, Alabama, includes 55,864 inhabitants from the jurisdiction of the Mobile County Sheriff's Department.													
+2004		3 Because of changes in reporting practices, annexations, and/or incomplete data, figures are not comparable to previous years' data.													
+2004		4 Limited data for 2004 were available for Illinois.  													
+2004		"5 The data collection methodology for the offense of forcible rape used by the state Uniform Crime Reporting (UCR) Program administered by the Illinois State Police does not comply 
+with national UCR guidelines.  Consequently, their figures for forcible rape and violent crime (of which forcible rape is a part) are not included in this table.   "		
+2004		"6 The data collection methodology for the offense of aggravated assault used by these agencies does not comply with national UCR guidelines.  Consequently, their figures for aggravated 
+assault and violent crime (of which aggravated assault is a part) are not included in this table."		
+

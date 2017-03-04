@@ -1,0 +1,278 @@
+---
+title: "a4-eda"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment 4: EDA
+
+In this assignment I will be conducting exploratory data analysis on the FBI crime data set found here https://ucr.fbi.gov/crime-in-the-u.s
+
+The questions my teasm is researching in this project is how does population affect a cities crime rate?
+
+Some sub questions to this are: does population effect speficic crimes more? How do crimes change as population shanges over the years. Does it effect wether or not the crime is violent or not?
+
+# Data Preperation
+In order to do some analysis I had to convert the excel files found in the link above to csv. Because some of the columns were not uniform, I rearranged some of those as well.
+
+# Describing the Data Structure
+Below we will go over the basic structure of the data and the variables. You will also see that I have to remove some variables and create some new variables to do analysis on.
+
+```{r cars}
+library(readr)
+library(dplyr)
+library(stringr)
+library(ggplot2)
+library(plotly)
+library(tidyr)
+library(vioplot)
+library(doBy)
+
+# load data
+cities <- read.csv('data/data.csv')
+
+
+# change variables to numerics
+cities$population <- as.numeric(as.character(cities$population))
+cities$violent_crime <- as.numeric(as.character(cities$violent_crime))
+cities$murder_and_non_negligent_man_slaughter <- as.numeric(as.character(cities$murder_and_non_negligent_man_slaughter))
+cities$forcible_rape <- as.numeric(as.character(cities$forcible_rape))
+cities$robbery <- as.numeric(as.character(cities$robbery))
+cities$aggravated_assault <- as.numeric(as.character(cities$aggravated_assault))
+cities$property_crime <- as.numeric(as.character(cities$property_crime))
+cities$burglary <- as.numeric(as.character(cities$burglary))
+cities$larceny_theft <- as.numeric(as.character(cities$larceny_theft))
+cities$motor_vehicle_theft <- as.numeric(as.character(cities$motor_vehicle_theft))
+cities$arson<- as.numeric(as.character(cities$arson))
+cities$crime_index_total <- as.numeric(as.character(cities$crime_index_total))
+cities$modified_crime_index_total <- as.numeric(as.character(cities$modified_crime_index_total))
+
+# change NA variables to 0
+cities[is.na(cities)] <- 0
+
+# remove cities with zero population - bad data rows
+cities <- cities[apply(cities["population"],1,function(z) !any(z==0)),] 
+
+# view data set
+View(cities)
+
+# determine shape
+dim(cities)
+
+# view column names
+colnames(cities)
+
+# data types of columns
+sapply(cities, class)
+
+# Summary of each column
+summary(cities)
+
+# view unique cities
+unique(cities$city)
+
+# make crimes per person columns
+#violent
+cities["murders_per_person"] <- with(cities, murder_and_non_negligent_man_slaughter / population)
+cities["assault_per_person"] <- with(cities, aggravated_assault / population)
+cities["rape_per_person"] <- with(cities, forcible_rape / population)
+#non-violent
+cities["robbery_per_person"] <- with(cities, robbery / population)
+cities["theft_per_person"] <- with(cities, larceny_theft / population)
+cities["burglary_per_person"] <- with(cities, burglary / population)
+
+# create some population bins
+small.pop <- cities %>% filter(population <= 5000)
+med.small.pop <- cities %>% filter(population >= 5001 & population <= 15000)
+med.large.pop <- cities %>% filter(population >= 15001 & population <= 75000)
+large.pop <- cities %>% filter(population >= 75001)
+
+
+```
+
+# Univariate analysis
+
+Here we look at the distribution of all the data. You can see in the histograms that the x axis scale is quite large, meaning the maximum values are quite high, but most of the data is at the lower end. This is because most of the data comes from smaller cities while larger cities have relatively high amounts of crimes commited.
+
+There is some data missing from columns like violent crime and property crime because earlier year data sets did not include them.
+```{r}
+
+summaryBy(murder_and_non_negligent_man_slaughter + aggravated_assault + forcible_rape + robbery + larceny_theft + burglary ~ year,  data = cities, 
+          FUN = list(mean, max, min, median, sd))
+
+```
+
+
+```{r pressure, echo=FALSE}
+
+
+hist(cities$year)
+hist(cities$population)
+hist(cities$violent_crime)
+hist(cities$murder_and_non_negligent_man_slaughter)
+hist(cities$forcible_rape)
+hist(cities$robbery)
+hist(cities$aggravated_assault)
+hist(cities$property_crime)
+hist(cities$burglary)
+hist(cities$larceny_theft)
+hist(cities$motor_vehicle_theft)
+hist(cities$arson)
+
+# Violin plot for each variable
+vioplot(
+  cities$violent_crime,
+  cities$murder_and_non_negligent_man_slaughter,
+  cities$forcible_rape, 
+  cities$robbery,
+  cities$aggravated_assault,
+  cities$property_crime,
+  cities$burglary,
+  cities$larceny_theft,
+  cities$motor_vehicle_theft,
+  cities$arson,
+  names=c('Violent Crime', 'Murder', 'Rape', 'Robbery', 'Aggravated Assault', 'Property Crime', 'Burglary', 'Larceny/Theft', 'Vehicle Theft', 'Arson')
+)
+
+# Boxplots for each variable (need to reshape first)
+long.data <- gather(cities, count, value, violent_crime, murder_and_non_negligent_man_slaughter, forcible_rape, robbery, aggravated_assault, property_crime, burglary, larceny_theft, motor_vehicle_theft, arson)
+boxplot(value ~ count, data = long.data, las=2)
+```
+
+# Univariate Analysis by Population
+
+
+```{r}
+
+# aggravated assault by population size
+vioplot(
+  small.pop$aggravated_assault, 
+  med.small.pop$aggravated_assault, 
+  med.large.pop$aggravated_assault, 
+  large.pop$aggravated_assault,
+  names=c('small','med-small', 'med-large','large'))
+
+# number of people in a given city per aggravated assault charge
+vioplot(
+  small.pop$aggravated_assault / small.pop$population, 
+  med.small.pop$aggravated_assault / med.small.pop$population, 
+  med.large.pop$aggravated_assault / med.large.pop$population, 
+  large.pop$aggravated_assault / large.pop$population,
+names=c('small','med-small', 'med-large','large'))
+
+
+vioplot(
+  small.pop$murder_and_non_negligent_man_slaughter, 
+  med.small.pop$murder_and_non_negligent_man_slaughter, 
+  med.large.pop$murder_and_non_negligent_man_slaughter, 
+  large.pop$murder_and_non_negligent_man_slaughter,
+  names=c('small','med-small', 'med-large','large'))
+
+vioplot(
+  small.pop$murders_per_person, 
+  med.small.pop$murders_per_person, 
+  med.large.pop$murders_per_person, 
+  large.pop$murders_per_person,
+  names=c('small','med-small', 'med-large','large'))
+
+vioplot(
+  small.pop$robbery, 
+  med.small.pop$robbery, 
+  med.large.pop$robbery, 
+  large.pop$robbery,
+  names=c('small','med-small', 'med-large','large'))
+
+vioplot(
+  small.pop$robbery_per_person, 
+  med.small.pop$robbery_per_person, 
+  med.large.pop$robbery_per_person, 
+  large.pop$robbery_per_person,
+  names=c('small','med-small', 'med-large','large'))
+
+vioplot(
+  small.pop$burglary, 
+  med.small.pop$burglary, 
+  med.large.pop$burglary, 
+  large.pop$burglary,
+  names=c('small','med-small', 'med-large','large'))
+
+vioplot(
+  small.pop$burglary_per_person, 
+  med.small.pop$burglary_per_person, 
+  med.large.pop$burglary_per_person, 
+  large.pop$burglary_per_person,
+  names=c('small','med-small', 'med-large','large'))
+
+
+```
+
+# Univariate Analysis by Year
+
+```{r}
+
+p <- qplot(assault_per_person, data = cities, geom = "histogram")
+p + facet_wrap(~ year)
+
+p <- qplot(murders_per_person, data = cities, geom = "histogram")
+p + facet_wrap(~ year)
+
+p <- qplot(rape_per_person, data = cities, geom = "histogram")
+p + facet_wrap(~ year)
+
+p <- qplot(robbery_per_person, data = cities, geom = "histogram")
+p + facet_wrap(~ year)
+
+p <- qplot(theft_per_person, data = cities, geom = "histogram")
+p + facet_wrap(~ year)
+
+p <- qplot(burglary_per_person, data = cities, geom = "histogram")
+p + facet_wrap(~ year)
+
+```
+
+# Bivariate Analysis
+
+``` {r}
+pairs(cities[,8:ncol(cities)])
+```
+
+
+```{r}
+
+# look at correlation between population to assaults per person
+t.test(cities$assault_per_person,cities$population)
+
+
+```
+```{r}
+
+# look at correlation between population to murders per person within cities
+t.test(cities$murders_per_person,cities$population)
+
+```
+
+
+```{r}
+
+# look at correlation between population to theft per person within cities
+t.test(cities$theft_per_person,cities$population)
+
+```
+
+```{r}
+
+# look at correlation between population to robbery per person within cities
+t.test(cities$robbery_per_person,cities$population)
+
+```
+
+# Summary of Insights
+
+I found some interesting things while exploring the data. One thing that popped out to me was that small towns had much higher rates of crime per person it seemed. I am curious is more crimes go unreported in the cities, or if law enforcement is not able to keep up with all the crime and people are not charged. I was expecting the exact opposite - that larger populations would have higher crime rates.
+
+There are also many points in the data where, as mentioned from the source, there was not any repoting done. For this assignment I set those values to zero so that I could calculate things easier. However it might be more appropriate for the final to remove rows with unreported columns or limit the amount of unreported columns in a given row. 
+
+Finally, I think that it might be good to bring in some other data to make this analysis more interesting. Possibley education data from these cities or economic data. On its own I am not sure population can speak for all of the crime data we see here. So there are plenty of things to explore moving forward.
